@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html ng-app="consultacep">
+<head>
+    <meta charset="utf-8" />
+    <title>Consulta CEP</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="Scripts/angular.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/cepController.js"></script>
+</head>
+<body>
+    <div ng-controller="cepController" class="col-md-12">
+        <div class="col-md-4" style="padding-top:10px">
+            <input class="form-control" ng-model="cepdigitado" placeholder="informe o cep" /><button ng-click="consultacep(cepdigitado)" class="btn btn-info">Pesquisar</button>
+        </div>
+        <table class="table">
+            <tr>
+                <th>UF</th>
+                <th>Cidade</th>
+                <th>Bairro</th>
+                <th>Logradouro</th>
+                <th>CEP</th>
+            </tr>
+            <tbody ng-repeat="m in resultado">
+                <tr>
+                    <td>{{m.uf}}</td>
+                    <td>{{m.localidade}}</td>
+                    <td>{{m.bairro}}</td>
+                    <td>{{m.logradouro}}</td>
+                    <td>{{m.cep}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
